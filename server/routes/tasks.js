@@ -37,8 +37,8 @@ taskRoutes.route('/tasks').get(async function (req, res) {
 taskRoutes.route('/tasks').post(function (req, res) {
   const dbConnect = dbo.getDb();
   const matchDocument = {
-    group_name: req.body.group_name,
-    users: [req.body.initial_user]
+    group_id: req.body.group,
+    assignees: [req.body.initial_assignee]
   };
 
   dbConnect
