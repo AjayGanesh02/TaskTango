@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03EC37822985A4D30006CAC3 /* task_tango_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37812985A4D30006CAC3 /* task_tango_appApp.swift */; };
+		03EC37822985A4D30006CAC3 /* task_tango_app.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37812985A4D30006CAC3 /* task_tango_app.swift */; };
 		03EC37842985A4D30006CAC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37832985A4D30006CAC3 /* ContentView.swift */; };
 		03EC37862985A4D40006CAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC37852985A4D40006CAC3 /* Assets.xcassets */; };
 		03EC37892985A4D40006CAC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC37882985A4D40006CAC3 /* Preview Assets.xcassets */; };
 		03EC37932985A4D40006CAC3 /* task_tango_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37922985A4D40006CAC3 /* task_tango_appTests.swift */; };
 		03EC379D2985A4D40006CAC3 /* task_tango_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC379C2985A4D40006CAC3 /* task_tango_appUITests.swift */; };
 		03EC379F2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC379E2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift */; };
+		03EC37AD2985A6D50006CAC3 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 03EC37AC2985A6D50006CAC3 /* Auth0 */; };
+		03EC37AF2985A7870006CAC3 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03EC37AE2985A7870006CAC3 /* Property List.plist */; };
+		03EC37B12985AB240006CAC3 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37B02985AB240006CAC3 /* profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		03EC377E2985A4D30006CAC3 /* task-tango-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "task-tango-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		03EC37812985A4D30006CAC3 /* task_tango_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_appApp.swift; sourceTree = "<group>"; };
+		03EC37812985A4D30006CAC3 /* task_tango_app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_app.swift; sourceTree = "<group>"; };
 		03EC37832985A4D30006CAC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		03EC37852985A4D40006CAC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03EC37882985A4D40006CAC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -44,6 +47,8 @@
 		03EC37982985A4D40006CAC3 /* task-tango-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "task-tango-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EC379C2985A4D40006CAC3 /* task_tango_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_appUITests.swift; sourceTree = "<group>"; };
 		03EC379E2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03EC37AE2985A7870006CAC3 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		03EC37B02985AB240006CAC3 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EC37AD2985A6D50006CAC3 /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +100,12 @@
 		03EC37802985A4D30006CAC3 /* task-tango-app */ = {
 			isa = PBXGroup;
 			children = (
-				03EC37812985A4D30006CAC3 /* task_tango_appApp.swift */,
+				03EC37812985A4D30006CAC3 /* task_tango_app.swift */,
 				03EC37832985A4D30006CAC3 /* ContentView.swift */,
 				03EC37852985A4D40006CAC3 /* Assets.xcassets */,
 				03EC37872985A4D40006CAC3 /* Preview Content */,
+				03EC37AE2985A7870006CAC3 /* Property List.plist */,
+				03EC37B02985AB240006CAC3 /* profile.swift */,
 			);
 			path = "task-tango-app";
 			sourceTree = "<group>";
@@ -143,6 +151,9 @@
 			dependencies = (
 			);
 			name = "task-tango-app";
+			packageProductDependencies = (
+				03EC37AC2985A6D50006CAC3 /* Auth0 */,
+			);
 			productName = "task-tango-app";
 			productReference = 03EC377E2985A4D30006CAC3 /* task-tango-app.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +226,9 @@
 				Base,
 			);
 			mainGroup = 03EC37752985A4D30006CAC3;
+			packageReferences = (
+				03EC37AB2985A6D50006CAC3 /* XCRemoteSwiftPackageReference "Auth0" */,
+			);
 			productRefGroup = 03EC377F2985A4D30006CAC3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EC37AF2985A7870006CAC3 /* Property List.plist in Resources */,
 				03EC37892985A4D40006CAC3 /* Preview Assets.xcassets in Resources */,
 				03EC37862985A4D40006CAC3 /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EC37B12985AB240006CAC3 /* profile.swift in Sources */,
 				03EC37842985A4D30006CAC3 /* ContentView.swift in Sources */,
-				03EC37822985A4D30006CAC3 /* task_tango_appApp.swift in Sources */,
+				03EC37822985A4D30006CAC3 /* task_tango_app.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +593,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		03EC37AB2985A6D50006CAC3 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03EC37AC2985A6D50006CAC3 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03EC37AB2985A6D50006CAC3 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 03EC37762985A4D30006CAC3 /* Project object */;
 }
