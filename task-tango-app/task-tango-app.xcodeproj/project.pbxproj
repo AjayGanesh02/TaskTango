@@ -15,8 +15,8 @@
 		03EC379D2985A4D40006CAC3 /* task_tango_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC379C2985A4D40006CAC3 /* task_tango_appUITests.swift */; };
 		03EC379F2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC379E2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift */; };
 		03EC37AD2985A6D50006CAC3 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 03EC37AC2985A6D50006CAC3 /* Auth0 */; };
-		03EC37AF2985A7870006CAC3 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03EC37AE2985A7870006CAC3 /* Property List.plist */; };
 		03EC37B12985AB240006CAC3 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37B02985AB240006CAC3 /* profile.swift */; };
+		03EC37B32985AE6F0006CAC3 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03EC37B22985AE6F0006CAC3 /* Auth0.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,8 @@
 		03EC37982985A4D40006CAC3 /* task-tango-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "task-tango-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EC379C2985A4D40006CAC3 /* task_tango_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_appUITests.swift; sourceTree = "<group>"; };
 		03EC379E2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		03EC37AE2985A7870006CAC3 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		03EC37B02985AB240006CAC3 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
+		03EC37B22985AE6F0006CAC3 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 				03EC37832985A4D30006CAC3 /* ContentView.swift */,
 				03EC37852985A4D40006CAC3 /* Assets.xcassets */,
 				03EC37872985A4D40006CAC3 /* Preview Content */,
-				03EC37AE2985A7870006CAC3 /* Property List.plist */,
 				03EC37B02985AB240006CAC3 /* profile.swift */,
+				03EC37B22985AE6F0006CAC3 /* Auth0.plist */,
 			);
 			path = "task-tango-app";
 			sourceTree = "<group>";
@@ -245,9 +245,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03EC37AF2985A7870006CAC3 /* Property List.plist in Resources */,
 				03EC37892985A4D40006CAC3 /* Preview Assets.xcassets in Resources */,
 				03EC37862985A4D40006CAC3 /* Assets.xcassets in Resources */,
+				03EC37B32985AE6F0006CAC3 /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
