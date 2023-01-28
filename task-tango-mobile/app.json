@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "task-tango-mobile",
-    "slug": "task-tango-mobile",
+    "name": "task-tango",
+    "slug": "task-tango",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,9 +17,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -34,6 +31,14 @@
         "projectId": "df13314c-2480-4350-86ed-18f052dbc3a0"
       }
     },
-    "owner": "jliuu"
+    "owner": "jliuu",
+    "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "dev-vtvguykkngefawuw.us.auth0.com"
+        }
+      ]
+    ]
   }
 }
