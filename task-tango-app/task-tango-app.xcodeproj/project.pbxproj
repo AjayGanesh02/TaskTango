@@ -17,6 +17,7 @@
 		03EC37AD2985A6D50006CAC3 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 03EC37AC2985A6D50006CAC3 /* Auth0 */; };
 		03EC37B12985AB240006CAC3 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37B02985AB240006CAC3 /* profile.swift */; };
 		03EC37B32985AE6F0006CAC3 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03EC37B22985AE6F0006CAC3 /* Auth0.plist */; };
+		03EC37B72985C5540006CAC3 /* RFIDReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC37B62985C5540006CAC3 /* RFIDReaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		03EC379E2985A4D40006CAC3 /* task_tango_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tango_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		03EC37B02985AB240006CAC3 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		03EC37B22985AE6F0006CAC3 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		03EC37B62985C5540006CAC3 /* RFIDReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFIDReaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				03EC37872985A4D40006CAC3 /* Preview Content */,
 				03EC37B02985AB240006CAC3 /* profile.swift */,
 				03EC37B22985AE6F0006CAC3 /* Auth0.plist */,
+				03EC37B62985C5540006CAC3 /* RFIDReaderView.swift */,
 			);
 			path = "task-tango-app";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				03EC37B12985AB240006CAC3 /* profile.swift in Sources */,
 				03EC37842985A4D30006CAC3 /* ContentView.swift in Sources */,
+				03EC37B72985C5540006CAC3 /* RFIDReaderView.swift in Sources */,
 				03EC37822985A4D30006CAC3 /* task_tango_app.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

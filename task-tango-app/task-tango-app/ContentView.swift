@@ -13,6 +13,11 @@ struct ContentView: View {
   @State var userProfile = Profile.empty
   
   var body: some View {
+      NavigationView {
+          NavigationLink(destination: RFIDReaderView()) {
+              Text("Choose Heads")
+          }
+      }
       
     if isAuthenticated {
       
