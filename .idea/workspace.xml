@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c4e222ab-f614-4432-b573-f8617746edb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/task-tango-website/src/pages/[group]/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-tango-website/src/pages/[group]/tasks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-tango-website/src/pages/activity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-tango-website/src/pages/alerts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-tango-website/src/pages/profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-tango-website/src/pages/scan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tango-website/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/task-tango-website/src/pages/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tango-website/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/task-tango-website/public/logo.svg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KzHErOMSViqgu5IPDZoJ7d02yG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4e222ab-f614-4432-b573-f8617746edb3" name="Changes" comment="" />
+      <created>1674970384383</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674970384383</updated>
+      <workItem from="1674970385848" duration="22000" />
+    </task>
+    <servers />
+  </component>
+</project>

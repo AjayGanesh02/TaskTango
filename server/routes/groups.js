@@ -1,4 +1,5 @@
 const express = require('express');
+const { ObjectID } = require('mongodb')
 
 // crudRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -39,6 +40,28 @@ groupRoutes.route('/groups').post(function (req, res) {
   dbConnect
     .collection('Groups')
     .insertOne(matchDocument, function (err, result) {
+      if (err) {
+        res.status(400).send('Error inserting matches!');
+      } else {
+        console.log(`Added a new match with id ${result.insertedId}`);
+        res.status(204).send();
+      }
+    });
+});
+
+groupRoutes.route('/groups/add').post(function (req, res) {
+  const dbConnect = dbo.getDb();
+  const matchDocument = {
+    "_id": ObjectID(req.body.group_id),
+  };
+
+  dbConnect
+    .collection('Groups')
+    .updateOne(matchDocument, {
+      $push: {
+        users: req.body.new_user
+      }
+    }, function (err, result) {
       if (err) {
         res.status(400).send('Error inserting matches!');
       } else {
