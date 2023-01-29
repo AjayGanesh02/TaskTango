@@ -11,7 +11,11 @@ const Group = () => {
   const router = useRouter()
   const {user} = useUser()
 
-  const [groups, setGroups] = useState<string[]>(["thing1", "thing2", "thing3"])
+  const [groups, setGroups] = useState<any[]>([
+    {name: "Roommates", num_tasks: 2, num_members: 6},
+    {name: "Hackathon", num_tasks: 5, num_members: 4},
+    {name: "Family", num_tasks: 1, num_members: 2},
+  ])
   useEffect(() => {
     if(user?.email) {
       getGroupsByUser(user.email).then((groups) => {
@@ -40,7 +44,7 @@ const Group = () => {
           {
             groups.map((group, index) => {
               return (
-                <GroupDisplay key={index} groupId={group}/>
+                <GroupDisplay key={index} group={group}/>
               )
             })
           }

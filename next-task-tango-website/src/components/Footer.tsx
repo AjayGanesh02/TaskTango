@@ -7,17 +7,17 @@ import {useUser} from "@auth0/nextjs-auth0/client";
 const Footer = () => {
 	const {user} = useUser()
 	const router = useRouter()
-	const {task_id} = router.query
+	const {cid} = router.query
 
 
 	useEffect(() => {
-		if(!user && task_id) {
-			router.push({pathname: '/', query: {task_id: task_id}})
+		if(!user && cid) {
+			router.push({pathname: '/', query: {cid: cid}})
 		}
-	}, [user, task_id, router])
+	}, [user, cid, router])
 
 	return (
-		<div className="absolute bottom-0 w-full" onClick={() => window.localStorage.removeItem("track_id")}>
+		<div className="absolute bottom-0 w-full" onClick={() => window.localStorage.removeItem("cid")}>
 			<div className="flex flex-row justify-around -mb-4 bg-lightgreen">
 				<div className="flex flex-col items-center pt-3 cursor-pointer" onClick={() => router.push('/alerts')}>
 					<BellIcon className="h-6 w-6 outline-brown justify-center" />

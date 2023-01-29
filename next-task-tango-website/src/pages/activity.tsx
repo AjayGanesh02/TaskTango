@@ -4,10 +4,13 @@ import {useEffect, useState} from "react";
 import ActivityCard from "@/components/ActivityCard";
 
 const Activity = () => {
-  const [activityIds, setActivityIds] = useState<string[]>(["abc", "def", "ghi"])
-  useEffect(() => {
-    // set activityids here
-  },[])
+  const [activity, setActivity] = useState<any>([
+    {name: "Ashley C.", task: "made footer for 4th time", group: "Hackathon", time: "1/28/2023 11:01 PM"},
+    {name: "Ajay G.", task: "broke code", group: "Hackathon", time: "1/28/2023 8:29 PM"},
+    {name: "Jeremy L.", task: "take out the trash", group: "Roommates", time: "1/28/2023 8:13 PM"},
+    {name: "Jeremy L.", task: "fix some code", group: "Hackathon", time: "1/28/2023 8:02 PM"},
+    {name: "Andrew S.", task: "wash the dishes", group: "Roommates", time: "1/28/2023 7:41 PM"},
+  ])
   return (
     <>
       <Head>
@@ -19,9 +22,9 @@ const Activity = () => {
         </h1>
         <div className="px-8">
           {
-            activityIds.map((activityId, index) => {
+            activity.map((activity: any, index: number) => {
               return (
-                <ActivityCard key={index} activityId={activityId}/>
+                <ActivityCard key={index} activity={activity}/>
               )
             })
           }

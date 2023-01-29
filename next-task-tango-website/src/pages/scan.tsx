@@ -12,16 +12,13 @@ const Scan = () => {
   useEffect(() => {
     if(window !== undefined) {
       if(window.localStorage.cid) {
-        console.log("scan was successful")
         setScanned(true)
 
-        // make request here
-        taskDone(window.localStorage.cid).then(() => {
+        setTimeout(() => {
+          taskDone(window.localStorage.cid).catch((e) => console.log('error'))
           window.localStorage.removeItem("cid");
-          setTimeout(() => {
-            setScanned(false)
-          }, 5000)
-        })
+          setScanned(false)
+        }, 5000)
       }
     }
   }, [])

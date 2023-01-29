@@ -1,27 +1,22 @@
 import {useEffect, useState} from "react";
 
 
-const ActivityCard = ({ activityId }: {activityId: string}) => {
+const ActivityCard = ({ activity }: {activity: {name: string, task: string, group: string, time: string}}) => {
   // fetch activity data from activityId
-  const [activity, setActivity] = useState<any | null>(null);
-  useEffect(() => {
-    // hanlde request here
-  })
-
   return (
-    <div className="py-8 border-b">
+    <div className="py-6 border-b overflow-scroll">
       <div className="text-lg w-2/3">
-        <span className="font-bold">Name C.</span>
+        <span className="font-bold">{activity.name}</span>
         {" "}
         completed
-        &ldquo;<span className="font-bold">take out trash</span>&rdquo;
+        &ldquo;<span className="font-bold">{activity.task}</span>&rdquo;
         {" "}
         in
         {" "}
-        &ldquo;<span className="font-bold">Roomates</span>&rdquo;
+        &ldquo;<span className="font-bold">{activity.group}</span>&rdquo;
       </div>
       <div className="text-darkgreen font-bold text-lg mt-2">
-        1/28/23
+        {activity.time}
       </div>
     </div>
   )

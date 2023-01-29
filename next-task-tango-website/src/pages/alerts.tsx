@@ -7,15 +7,19 @@ import {getLaterTasksByUser} from "@/lib/api";
 
 const Alerts = () => {
   const {user} = useUser()
-  const [upcomingTasks, setUpcomingTasks] = useState<string[]>(["abc", "def", "ghi"])
+  const [upcomingTasks, setUpcomingTasks] = useState<any[]>([
+    {activity: "make video demo", group: "Hackathon", date: "1/29/2023 12:00:00 PM"},
+    {activity: "make live presentation", group: "Hackathon", date: "1/29/2023 3:00:00 PM"},
+    {activity: "clean basement", group: "Family", date: "1/31/2023 12:00:00 AM"},
+  ])
   useEffect(() => {
-    if(user?.email) {
-      getLaterTasksByUser(user.email).then((tasks) => {
-        console.log(tasks)
-        let ids = tasks?.data?.map((task: any) => task.id)
-        setUpcomingTasks(ids)
-      }).catch((err) => console.log(err))
-    }
+    // if(user?.email) {
+    //   getLaterTasksByUser(user.email).then((tasks) => {
+    //     console.log(tasks)
+    //     let ids = tasks?.data?.map((task: any) => task.id)
+    //     setUpcomingTasks(ids)
+    //   }).catch((err) => console.log(err))
+    // }
   }, [user])
 
   return (
@@ -31,7 +35,7 @@ const Alerts = () => {
           {
             upcomingTasks.map((upcomingTask, index) => {
               return (
-                <AlertCard key={index} taskId={upcomingTask}/>
+                <AlertCard key={index} task={upcomingTask}/>
               )
             })
           }
