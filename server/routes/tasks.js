@@ -65,7 +65,7 @@ taskRoutes.route('/tasks').post(function (req, res) {
 
   function subtractHours(date, hours) {
     date.setHours(date.getHours() - hours);
-  
+
     return date;
   }
 
@@ -104,7 +104,7 @@ taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
 taskRoutes.route('/tasks/complete').post(function (req, res) {
   const dbConnect = dbo.getDb();
   const matchDocument = {
-    card_id: req.body.data 
+    card_id: req.body.data
   };
 
   dbConnect

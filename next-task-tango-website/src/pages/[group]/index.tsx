@@ -12,11 +12,11 @@ const Group = () => {
   return (
     <>
       <Head>
-        <title>X Group</title>
+        <title>TaskTango Groups</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-full roboto select-none">
-        <h1 className="text-2xl font-bold pt-8 pl-10 flex">
+        <h1 className="text-3xl font-bold pt-8 pl-10 flex">
           Groups
           <button
             className="ml-auto mr-10"

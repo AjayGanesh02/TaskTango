@@ -23,6 +23,7 @@
     - body
       - group_name: group name
       - initial_user: initial user's email
+
   - /groups/add
     - body
       - group_id: group id

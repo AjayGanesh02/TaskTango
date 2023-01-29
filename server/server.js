@@ -21,7 +21,6 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(require('./routes/groups'));
 app.use(require('./routes/tasks'));
-app.use(require('./routes/users'))
 
 // Global error handling
 app.use(function (err, _req, res, _next) {
