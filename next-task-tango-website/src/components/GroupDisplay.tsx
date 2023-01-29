@@ -7,10 +7,10 @@ const GroupDisplay = ({group}: {group: any}) => {
   const router = useRouter()
 
   return (
-    <div className="shadow-lg rounded-xl bg-lightgreen mx-10 my-4 flex text-brown cursor-pointer"
+    <div className="shadow-lg rounded-xl bg-lightgreen mx-8 my-4 flex text-brown cursor-pointer"
     // onClick={() => router.push(`${groupId}/tasks`)}
     >
-      <div className="p-5">
+      <div className="px-5 py-4">
         <div>
           <UserCircleIcon className="w-8 h-8 inline -mt-1.5"/>
           <span className="font-semibold text-lg ml-2">

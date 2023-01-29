@@ -10,7 +10,7 @@ const AlertCard = ({ task }: {task: any}) => {
   })
 
   return (
-    <div className="py-8 border-b flex text-brown">
+    <div className="py-8 pl-8 border-b flex text-brown">
       <BellIcon className="h-6 w-6 mr-8 my-auto"/>
       <div className="text-lg w-2/3">
         You have to {" "}

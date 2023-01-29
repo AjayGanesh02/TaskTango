@@ -28,8 +28,8 @@ const Alerts = () => {
         <title>TaskTango Alerts</title>
       </Head>
       <div className="h-screen">
-        <div className="mt-8 ml-8">
-          <h1 className="text-3xl font-bold">
+        <div className="pb-48">
+          <h1 className="mt-8 ml-8 text-3xl font-bold sticky top-0 bg-white">
             Upcoming Alerts
           </h1>
           {

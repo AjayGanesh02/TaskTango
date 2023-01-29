@@ -17,10 +17,10 @@ const Activity = () => {
         <title>TaskTango Activity</title>
       </Head>
       <div className="h-screen">
-        <h1 className="text-3xl font-bold pl-8 pt-8">
+        <h1 className="text-3xl font-bold pl-8 pt-8 sticky top-0 bg-white pb-2">
           Recent Activity
         </h1>
-        <div className="px-8">
+        <div className="px-8 pb-48">
           {
             activity.map((activity: any, index: number) => {
               return (

@@ -17,7 +17,7 @@ const Footer = () => {
 	}, [user, cid, router])
 
 	return (
-		<div className="absolute bottom-0 w-full" onClick={() => window.localStorage.removeItem("cid")}>
+		<div className="fixed bottom-0 w-full" onClick={() => window.localStorage.removeItem("cid")}>
 			<div className="flex flex-row justify-around -mb-4 bg-lightgreen">
 				<div className="flex flex-col items-center pt-3 cursor-pointer" onClick={() => router.push('/alerts')}>
 					<BellIcon className="h-6 w-6 outline-brown justify-center" />
