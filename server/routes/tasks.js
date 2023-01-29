@@ -36,6 +36,30 @@ taskRoutes.route('/tasks').get(async function (req, res) {
     });
 });
 
+taskRoutes.route('/tasks/later').get(function (req, res) {
+  const dbConnect = dbo.getDb();
+
+  const matchDocument = req.query.user ? {
+    assignees: req.query.user,
+    next_alert: { $gte: new Date() }
+  } : {
+    group_id: req.query.group_id,
+    next_alert: { $gte: new Date() }
+  }
+  dbConnect
+    .collection('Tasks')
+    .find(matchDocument)
+    .toArray(function (err, result) {
+      if (err) {
+        res.status(400).send('Error fetching tasks!');
+      } else {
+        res.json(result);
+      }
+    });
+
+
+})
+
 taskRoutes.route('/tasks').post(function (req, res) {
   const dbConnect = dbo.getDb();
 
@@ -65,7 +89,7 @@ taskRoutes.route('/tasks').post(function (req, res) {
         res.status(400).send('Error inserting matches!');
       } else {
         console.log(`Added a new match with id ${result.insertedId}`);
-        res.status(204).send();
+        res.status(204).send(result.insertedId);
       }
     });
 });
@@ -90,7 +114,7 @@ taskRoutes.route('/tasks/complete').post(function (req, res) {
         res.status(400).send('Error inserting matches!');
       } else {
         console.log(`Added a new match with id ${result.insertedId}`);
-        res.status(204).send();
+        res.status(204).send(result.insertedId);
       }
     });
 });
