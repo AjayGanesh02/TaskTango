@@ -101,7 +101,7 @@ taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
   .then(message => console.log(message.sid));
 });
 
-taskRoutes.route('/tasks/done').get(function (req, _res) {
+taskRoutes.route('/tasks/done').get(async function (req, _res) {
   const dbConnect = dbo.getDb();
   const code = req.query.code
 
@@ -113,7 +113,8 @@ taskRoutes.route('/tasks/done').get(function (req, _res) {
   const matchDocument = {
     card_id: code
   }
-  const taskOld = dbConnect.collection('Tasks').find(matchDocument).toArray()[0]
+  const taskOld = await dbConnect.collection('Tasks').find(matchDocument).toArray()[0];
+  console.log(taskOld);
   dbConnect
   .collection('Tasks')
   .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), taskOld.frequency), assign_idx: (taskOld.assign_idx + 1) % taskOld.assignees.length }})

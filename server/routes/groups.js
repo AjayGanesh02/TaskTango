@@ -11,14 +11,14 @@ const dbo = require('../db/conn');
 groupRoutes.route('/groups').get(async function (req, res) {
   const dbConnect = dbo.getDb();
   const user = req.query.email
-  if (!user) {
-    res.send("Specify a user to find groups")
+  const id = req.query.group_id
+  const matchDoc = user ? {'users': user} : {"_id": ObjectID(id)}
+  if (!user && !id) {
+    res.send("Specify a user or id to find groups")
   }
   dbConnect
     .collection('Groups')
-    .find({
-      'users': user
-    })
+    .find(matchDoc)
     .toArray(function (err, result) {
       if (err) {
         res.status(400).send('Error fetching listings!');

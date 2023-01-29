@@ -33,6 +33,10 @@ const updatePhone = async (user_email: string, phone_num: string) => {
     })
 }
 
+const getGroupByGroupID = async (group_id: string) => {
+    return await axios.get(BASE_URL + `/groups?group_id=${group_id}`)
+}
+
 const taskDone = async (scan_code: string) => {
     return await axios.get(BASE_URL + `/tasks/done?code=${scan_code}`)
 }
@@ -43,5 +47,7 @@ export {
     getGroupsByUser,
     getPhoneByUser,
     getLaterTasksByGroup,
-    getLaterTasksByUser
+    getLaterTasksByUser,
+    updatePhone,
+    taskDone
 }
