@@ -14,6 +14,11 @@ module.exports = {
         "light-green": "#EDF7DE",
         "dark-green": "#C8E79D",
         brown: "#333333"
+      },
+      fontFamily: {
+        sans: [
+          "Roboto", "sans-serif"
+        ]
       }
     },
   },
