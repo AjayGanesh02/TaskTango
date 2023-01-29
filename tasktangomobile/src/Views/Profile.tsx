@@ -1,6 +1,7 @@
 import { Button, SafeAreaView, Text } from "react-native";
 import React from "react";
 import { useAuth0 } from "react-native-auth0";
+import Footer from "../Components/Footer";
 
 const Profile = ({navigation}) => {
   // handle logout logic
@@ -15,10 +16,11 @@ const Profile = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1 flex-col h-screen justify-between">
       <Text>Profile</Text>
       <Button onPress={onPress} title="Log out" />
       <Button title="Scan" onPress={() => navigation.navigate('scan')} />
+      <Footer />
     </SafeAreaView>
   )
 }
