@@ -94,11 +94,12 @@ taskRoutes.route('/tasks').post(function (req, res) {
     });
 });
 
-taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
+taskRoutes.route('/tasks/sendMessage').get((req,res) => {
   const phone = "+1" + req.query.phone
   client.messages
   .create({ body: "Reminder to do " + req.query.taskName, from: "+18339741927", to: phone })
   .then(message => console.log(message.sid));
+  res.status(204).send('done')
 });
 
 taskRoutes.route('/tasks/done').get(async function (req, res) {
@@ -120,7 +121,13 @@ taskRoutes.route('/tasks/done').get(async function (req, res) {
       console.log(resu)
       dbConnect
   .collection('Tasks')
-  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), resu[0].frequency), assign_idx: (resu[0].assign_idx + 1) % resu[0].assignees.length }})}
+  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), resu[0].frequency), assign_idx: (resu[0].assign_idx + 1) % resu[0].assignees.length }}, (err, result) => {
+    if (err) {
+      res.status(400).send('Error');
+    } else {
+      res.status(204).send(result.insertedId);
+    }
+  })}
   });
   
 })
