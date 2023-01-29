@@ -28,7 +28,6 @@ export default function Home() {
       <Head>
         <title>Task Tango</title>
         <meta name="description" content="Tap your tasks away" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen text-center roboto">
