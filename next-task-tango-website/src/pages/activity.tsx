@@ -1,11 +1,19 @@
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const Activity = () => {
   return (
-    <div className="flex flex-1 flex-col h-screen justify-between">
-      <h1>this is Activity</h1>
-      <Footer />
-    </div>
+    <>
+      <Head>
+        <title>TaskTango Activity</title>
+      </Head>
+      <div className=" h-screen justify-between">
+        <h1 className="text-2xl font-bold pl-8 pt-8">
+          Recent Activity
+        </h1>
+        <Footer />
+      </div>
+    </>
   )
 }
 
