@@ -1,13 +1,24 @@
 import Head from "next/head";
 import {PlusIcon} from "@heroicons/react/20/solid";
 import GroupDisplay from "@/components/GroupDisplay";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import Footer from "@/components/Footer";
+import {useUser} from "@auth0/nextjs-auth0/client";
+import {getGroupsByUser} from "@/lib/api";
 
 const Group = () => {
   const router = useRouter()
+  const {user} = useUser()
+
   const [groups, setGroups] = useState<string[]>(["thing1", "thing2", "thing3"])
+  useEffect(() => {
+    if(user?.email) {
+      getGroupsByUser(user.email).then((groups) => {
+        console.log(groups)
+      }).catch((err) => console.log(err))
+    }
+  }, [user])
 
   return (
     <>
