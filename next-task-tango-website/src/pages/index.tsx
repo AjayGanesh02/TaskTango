@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {useUser} from "@auth0/nextjs-auth0/client";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import Logo from "../../public/logo.svg"
 import Image from "next/image";
@@ -8,10 +8,18 @@ import Image from "next/image";
 export default function Home() {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
+  const {task_id} = router.query;
+
+  useEffect(() => {
+    if(task_id && window !== undefined) {
+      localStorage.setItem("task_id", task_id as string)
+      console.log('set local storage')
+    }
+  }, [task_id])
 
   useEffect(() => {
     if (user) {
-      router.push("/scan");
+      router.push({pathname: "/scan"});
     }
   }, [user, router]);
 

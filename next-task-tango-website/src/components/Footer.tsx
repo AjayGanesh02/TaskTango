@@ -1,11 +1,23 @@
 import { BellIcon, UserGroupIcon, ChartBarIcon, UserIcon } from '@heroicons/react/24/outline';
 import { QrCodeIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/router';
+import {useEffect} from "react";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 const Footer = () => {
+	const {user} = useUser()
 	const router = useRouter()
+	const {task_id} = router.query
+
+
+	useEffect(() => {
+		if(!user && task_id) {
+			router.push({pathname: '/', query: {task_id: task_id}})
+		}
+	}, [user, task_id, router])
+
 	return (
-		<div className="absolute bottom-0 w-full">
+		<div className="absolute bottom-0 w-full" onClick={() => window.localStorage.removeItem("track_id")}>
 			<div className="flex flex-row justify-around -mb-4 bg-lightgreen">
 				<div className="flex flex-col items-center pt-3 cursor-pointer" onClick={() => router.push('/alerts')}>
 					<BellIcon className="h-6 w-6 outline-brown justify-center" />

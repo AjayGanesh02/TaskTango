@@ -7,7 +7,7 @@ import {ArrowLeftOnRectangleIcon} from "@heroicons/react/24/outline";
 
 const Profile = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('')
-  const [error, setError] = useState("heres an error")
+  const [error, setError] = useState("")
   const submitNumber = () => {
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if(phoneNumber.match(phoneno)) {
