@@ -1,6 +1,7 @@
 import styles from '@/styles/Home.module.css'
 import Head from 'next/head'
 import { setSyntheticLeadingComments } from 'typescript'
+import Footer from "@/components/Footer";
 
 const Profile = () => {
   return (
@@ -25,7 +26,7 @@ const Profile = () => {
                 id="phone-number"
                 placeholder="+1 (555) 729 2022"
                 className="block w-36 mx-auto rounded-md border-gray-300 focus:outline-transparent focus:placeholder-opacity-0 sm:text-l text-center"
-                
+
               />
             </div>
             <div className="pt-5">
@@ -38,7 +39,7 @@ const Profile = () => {
           </div>
           <button type="button" className="text-2xl text-white font-bold roboto bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 rounded-full px-20 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Logout</button>
         </div>
-
+        <Footer />
       </main>
     </>
   )
@@ -47,7 +48,7 @@ const Profile = () => {
 const submitPhoneNumber = async (event) => {
   event.preventDefault();
   const number = event.target.number.value;
-  
+
 }
 
 export default Profile

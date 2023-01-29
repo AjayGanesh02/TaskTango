@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "@/components/Footer";
 
 const Scan = () => {
   return (
@@ -11,6 +12,7 @@ const Scan = () => {
         <h1 className="text-2xl text-center pt-40 font-bold text-brown">
           Please scan your RFID tag
         </h1>
+        <Footer />
       </div>
     </>
   )

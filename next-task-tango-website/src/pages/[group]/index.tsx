@@ -3,7 +3,7 @@ import {PlusIcon} from "@heroicons/react/20/solid";
 import GroupDisplay from "@/components/GroupDisplay";
 import {useState} from "react";
 import {useRouter} from "next/router";
-
+import Footer from "@/components/Footer";
 
 const Group = () => {
   const router = useRouter()
@@ -34,6 +34,7 @@ const Group = () => {
           }
         </div>
       </div>
+      <Footer />
     </>
   )
 }
