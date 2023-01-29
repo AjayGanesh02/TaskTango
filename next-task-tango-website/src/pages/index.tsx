@@ -6,14 +6,14 @@ import Logo from "../../public/logo.svg"
 import Image from "next/image";
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   const { user, error, isLoading } = useUser();
 
   useEffect(() => {
-    if(user) {
-      router.push('/scan')
+    if (user) {
+      router.push("/scan");
     }
-  }, [user])
+  }, [user, router]);
 
   return (
     <>
@@ -46,5 +46,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
