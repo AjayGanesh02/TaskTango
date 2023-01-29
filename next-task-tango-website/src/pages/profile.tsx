@@ -2,42 +2,64 @@ import styles from '@/styles/Home.module.css'
 import Head from 'next/head'
 import { setSyntheticLeadingComments } from 'typescript'
 import Footer from "@/components/Footer";
+import {useState} from "react";
+import {ArrowLeftOnRectangleIcon} from "@heroicons/react/24/outline";
 
 const Profile = () => {
+  const [phoneNumber, setPhoneNumber] = useState<string>('')
+  const [error, setError] = useState("heres an error")
+  const submitNumber = () => {
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if(phoneNumber.match(phoneno)) {
+      setError("")
+      // add api connection here
+      return
+    }
+    setError("Invalid phone number")
+  }
   return (
     <>
       <Head>
-        <title>Profile</title>
+        <title>Task Tango Profile</title>
         <meta name="description" content="Task Tango" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen roboto">
-        <div className="pt-4 pl-4 pb-5">
-          <h1 className="text-3xl font-bold text-brown">Profile</h1>
+        <div className="pt-8 pl-8 pb-10 flex">
+          <h1 className="text-2xl font-bold text-brown">
+            Update Your Profile
+          </h1>
+          <a href="/api/auth/logout" className="ml-auto mr-8 -mt-0.5">
+            <ArrowLeftOnRectangleIcon className={"w-8 h-8 cursor-pointer"} />
+          </a>
         </div>
-        <div className="text-center pt-40">
-          <h1 className=" pb-3 text-3xl font-bold text-brown">Phone Number</h1>
-          <div>
-            <div className="relative mt-1 rounded-md shadow-sm flex">
-              <input
-                type="text"
-                name="phone-number"
-                id="phone-number"
-                placeholder="+1 (555) 729 2022"
-                className="block w-36 mx-auto rounded-md border-gray-300 focus:outline-transparent focus:placeholder-opacity-0 sm:text-l text-center"
-
-              />
+        <div className="px-8 mt-16">
+          <div className="flex">
+            <div>
+              <div className="relative rounded-md">
+                <input
+                  type="text"
+                  name="phone-number"
+                  id="phone-number"
+                  placeholder="+1 (555) 729 2022"
+                  value={phoneNumber}
+                  onChange={(event) => setPhoneNumber(event.target.value)}
+                  className="w-64 mx-auto rounded-md focus:outline-gray-200 focus:placeholder-opacity-0 border py-2 px-4"
+                />
+              </div>
+              <h1 className="text-md text-brown mt-1 ml-4 text-gray-500">
+                Phone Number (#)
+              </h1>
             </div>
-            <div className="pt-5">
-
-            </div>
-            <button type="button" className="text-1xl font-bold text-brown roboto bg-dark-green focus:bg-light-green rounded-full text-center px-4 py-2.5">Submit</button>
+            <button className="h-10 border text-brown ml-auto px-5 py-2 rounded-md shadow-lg bg-mediumgreen font-semibold"
+            onClick={() => submitNumber()}>
+              Save
+            </button>
           </div>
-          <div className="pt-80">
-
+          <div className="mt-12 text-center text-red-400">
+            {error}
           </div>
-          <button type="button" className="text-2xl text-white font-bold roboto bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 rounded-full px-20 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Logout</button>
         </div>
         <Footer />
       </main>
@@ -45,7 +67,7 @@ const Profile = () => {
   )
 }
 
-const submitPhoneNumber = async (event) => {
+const submitPhoneNumber = async (event: any) => {
   event.preventDefault();
   const number = event.target.number.value;
 

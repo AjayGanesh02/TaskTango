@@ -7,12 +7,12 @@ const GroupDisplay = ({groupId}: {groupId: string}) => {
   const router = useRouter()
 
   return (
-    <div className="shadow-lg rounded-xl bg-light-green mx-10 my-4 flex text-brown cursor-pointer"
+    <div className="shadow-lg rounded-xl bg-lightgreen mx-10 my-4 flex text-brown cursor-pointer"
     onClick={() => router.push(`${groupId}/tasks`)}>
       <div className="p-5">
         <div>
           <UserCircleIcon className="w-8 h-8 inline -mt-1.5"/>
-          <span className="font-medium text-lg ml-2">
+          <span className="font-semibold text-lg ml-2">
             Roommates
           </span>
         </div>
