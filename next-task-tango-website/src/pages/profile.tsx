@@ -45,7 +45,7 @@ const Profile = () => {
   )
 }
 
-const submitPhoneNumber = async (event) => {
+const submitPhoneNumber = async (event: { preventDefault: () => void; target: { number: { value: any; }; }; }) => {
   event.preventDefault();
   const number = event.target.number.value;
 
