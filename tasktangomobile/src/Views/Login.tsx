@@ -1,4 +1,4 @@
-import { Button, SafeAreaView, Text, View } from "react-native";
+import { Button, SafeAreaView, Text } from "react-native";
 import React from "react";
 import { useAuth0 } from "react-native-auth0";
 import { TrashIcon } from "react-native-heroicons/outline";
