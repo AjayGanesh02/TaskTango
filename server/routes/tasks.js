@@ -120,7 +120,7 @@ taskRoutes.route('/tasks/done').get(async function (req, res) {
       console.log(resu)
       dbConnect
   .collection('Tasks')
-  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), resu.frequency), assign_idx: (resu.assign_idx + 1) % resu.assignees.length }})}
+  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), resu[0].frequency), assign_idx: (resu[0].assign_idx + 1) % resu[0].assignees.length }})}
   });
   
 })
