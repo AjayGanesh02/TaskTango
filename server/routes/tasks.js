@@ -113,14 +113,14 @@ taskRoutes.route('/tasks/done').get(async function (req, res) {
   const matchDocument = {
     card_id: code
   }
-  const taskOld = await dbConnect.collection('Tasks').find(matchDocument).toArray(function(err, resu) {
+  await dbConnect.collection('Tasks').find(matchDocument).toArray(function(err, resu) {
     if (err) {
       res.status(400).send('Error inserting matches!');
     } else {
       console.log(resu)
       dbConnect
   .collection('Tasks')
-  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), taskOld.frequency), assign_idx: (taskOld.assign_idx + 1) % taskOld.assignees.length }})}
+  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), resu.frequency), assign_idx: (resu.assign_idx + 1) % resu.assignees.length }})}
   });
   
 })
