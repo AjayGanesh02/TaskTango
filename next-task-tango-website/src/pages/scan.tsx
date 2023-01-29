@@ -15,7 +15,8 @@ const Scan = () => {
         setScanned(true)
 
         setTimeout(() => {
-          taskDone(window.localStorage.cid).catch((e) => console.log('error'))
+          console.log(window.localStorage.cid)
+          taskDone(window.localStorage.cid as string).then((e) => console.log(e)).catch((e) => console.log('error'))
           window.localStorage.removeItem("cid");
           setScanned(false)
         }, 5000)

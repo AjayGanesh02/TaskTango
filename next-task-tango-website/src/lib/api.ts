@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://api.tasktango.ajayganesh.com:8080'
+const BASE_URL = 'http://ec2-44-210-92-253.compute-1.amazonaws.com'
 
 const getTasksByUser = async (user_email: string) => {
     return await axios.get(BASE_URL + `/tasks?user=${user_email}`)
