@@ -14,8 +14,8 @@ function App(): JSX.Element {
       cacheLocation="localstorage">
       <TailwindProvider>
         <NavigationContainer>
-          {/*<Home />*/}
-          <Login />
+          <Home />
+          {/*<Login />*/}
         </NavigationContainer>
       </TailwindProvider>
     </Auth0Provider>

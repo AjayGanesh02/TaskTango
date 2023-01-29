@@ -40,13 +40,19 @@ const LogoutButton = () => {
   return <Button onPress={onPress} title="Log out" />
 }
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <SafeAreaView>
       <TrashIcon className={"w-20 h-20"}/>
       <Profile />
       <LoginButton />
       <LogoutButton />
+      <Button
+        title="Change"
+        onPress={() =>
+          navigation.navigate('scan')
+        }
+      />
     </SafeAreaView>
   )
 }
