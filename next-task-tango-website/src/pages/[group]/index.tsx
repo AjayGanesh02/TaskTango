@@ -18,10 +18,10 @@ const Group = () => {
   ])
   useEffect(() => {
     if(user?.email) {
-      getGroupsByUser(user.email).then((groups) => {
-        let ids = groups?.data?.map((group: any) => group.id)
-        setGroups(ids)
-      }).catch((err) => console.log(err))
+      // getGroupsByUser(user.email).then((groups) => {
+      //   let ids = groups?.data?.map((group: any) => group.id)
+      //   setGroups(ids)
+      // }).catch((err) => console.log(err))
     }
   }, [user])
 
