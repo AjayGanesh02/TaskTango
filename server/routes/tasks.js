@@ -101,7 +101,7 @@ taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
   .then(message => console.log(message.sid));
 });
 
-taskRoutes.route('/tasks/done').get(async function (req, _res) {
+taskRoutes.route('/tasks/done').get(async function (req, res) {
   const dbConnect = dbo.getDb();
   const code = req.query.code
 
@@ -113,11 +113,16 @@ taskRoutes.route('/tasks/done').get(async function (req, _res) {
   const matchDocument = {
     card_id: code
   }
-  const taskOld = await dbConnect.collection('Tasks').find(matchDocument).toArray()[0];
-  console.log(taskOld);
-  dbConnect
+  const taskOld = await dbConnect.collection('Tasks').find(matchDocument).toArray(function(err, resu) {
+    if (err) {
+      res.status(400).send('Error inserting matches!');
+    } else {
+      console.log(resu)
+      dbConnect
   .collection('Tasks')
-  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), taskOld.frequency), assign_idx: (taskOld.assign_idx + 1) % taskOld.assignees.length }})
+  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), taskOld.frequency), assign_idx: (taskOld.assign_idx + 1) % taskOld.assignees.length }})}
+  });
+  
 })
 
 module.exports = taskRoutes;
