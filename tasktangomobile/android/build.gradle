@@ -1,4 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+android {
+    defaultConfig {
+        // Add the next line
+        manifestPlaceholders = [auth0Domain: "dev-vtvguykkngefawuw.us.auth0.com", auth0Scheme: "${applicationId}"]
+    }
+}
+
 
 buildscript {
     ext {
