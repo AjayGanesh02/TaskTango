@@ -20,14 +20,14 @@ const Profile = () => {
   return (
     <>
       <Head>
-        <title>Task Tango Profile</title>
+        <title>TaskTango Profile</title>
         <meta name="description" content="Task Tango" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen roboto">
         <div className="pt-8 pl-8 pb-10 flex">
-          <h1 className="text-2xl font-bold text-brown">
+          <h1 className="text-3xl font-bold text-brown">
             Update Your Profile
           </h1>
           <a href="/api/auth/logout" className="ml-auto mr-8 -mt-0.5">
