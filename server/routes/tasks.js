@@ -113,7 +113,7 @@ taskRoutes.route('/tasks/done').get(function (req, _res) {
   const matchDocument = {
     card_id: code
   }
-  const taskOld = dbConnect.collection('Tasks').findOne(matchDocument).toArray()[0]
+  const taskOld = dbConnect.collection('Tasks').find(matchDocument).toArray()[0]
   dbConnect
   .collection('Tasks')
   .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), taskOld.frequency), assign_idx: (taskOld.assign_idx + 1) % taskOld.assignees.length }})
