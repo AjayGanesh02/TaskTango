@@ -7,7 +7,7 @@ const cors = require('cors');
 
 // get MongoDB driver connection
 const dbo = require('./db/conn');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 
@@ -21,6 +21,10 @@ app.use(function (err, _req, res, _next) {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
+
+app.get('/', (req, res) => {
+  res.send("Hello world")
+})
 
 // perform a database connection when the server starts
 dbo.connectToServer(function (err) {
