@@ -67,10 +67,4 @@ const Profile = () => {
   )
 }
 
-const submitPhoneNumber = async (event: any) => {
-  event.preventDefault();
-  const number = event.target.number.value;
-
-}
-
 export default Profile
