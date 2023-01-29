@@ -1,5 +1,7 @@
 const express = require('express');
 
+const client = require("twilio")(process.env.accountSid, process.env.authToken);
+
 // crudRoutes is an instance of the express router.
 // We use it to define our routes.
 const taskRoutes = express.Router();
@@ -36,9 +38,24 @@ taskRoutes.route('/tasks').get(async function (req, res) {
 
 taskRoutes.route('/tasks').post(function (req, res) {
   const dbConnect = dbo.getDb();
+
+  function subtractHours(date, hours) {
+    date.setHours(date.getHours() - hours);
+  
+    return date;
+  }
+
+  const now = new Date();
+
   const matchDocument = {
     group_id: req.body.group,
-    assignees: [req.body.initial_assignee]
+    assignees: [req.body.initial_assignee],
+    last_notified: now,
+    last_completed: subtractHours(now, 1),
+    frequency: req.body.freq * 1000,
+    assign_idx: 0,
+    isFreq: true,
+    card_id: req.body.card_id
   };
 
   dbConnect
@@ -53,42 +70,27 @@ taskRoutes.route('/tasks').post(function (req, res) {
     });
 });
 
-taskRoutes.route('/tasks').post(function (req, res) {
+taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
+  const phone = "+" + req.query.phone
+  client.messages
+  .create({ body: "Reminder to do " + req.query.taskName, from: "+18339741927", to: phone })
+  .then(message => console.log(message.sid));
+})
+
+taskRoutes.route('/tasks/complete').post(function (req, res) {
   const dbConnect = dbo.getDb();
-  const listingQuery = { _id: req.body.id };
-  const updates = {
-    $inc: {
-      likes: 1,
-    },
+  const matchDocument = {
+    card_id: req.body.data 
   };
 
   dbConnect
-    .collection('listingsAndReviews')
-    .updateOne(listingQuery, updates, function (err, _result) {
+    .collection('Tasks')
+    .insertOne(matchDocument, function (err, result) {
       if (err) {
-        res
-          .status(400)
-          .send(`Error updating likes on listing with id ${listingQuery.id}!`);
+        res.status(400).send('Error inserting matches!');
       } else {
-        console.log('1 document updated');
-      }
-    });
-});
-
-// This section will help you delete a record.
-taskRoutes.route('/listings/delete/:id').delete((req, res) => {
-  const dbConnect = dbo.getDb();
-  const listingQuery = { listing_id: req.body.id };
-
-  dbConnect
-    .collection('listingsAndReviews')
-    .deleteOne(listingQuery, function (err, _result) {
-      if (err) {
-        res
-          .status(400)
-          .send(`Error deleting listing with id ${listingQuery.listing_id}!`);
-      } else {
-        console.log('1 document deleted');
+        console.log(`Added a new match with id ${result.insertedId}`);
+        res.status(204).send();
       }
     });
 });
