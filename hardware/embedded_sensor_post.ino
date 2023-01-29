@@ -6,7 +6,7 @@
 char ssid[] = "SpartaHack";
 char pwd[] = "SpartansWill";
 
-char serverAddress[] = "100.25.147.177";
+char serverAddress[] = "44.210.92.253";
 int port = 8080;
 
 WiFiClient wifi;
@@ -64,7 +64,7 @@ void loop() {
 
     client.connectionKeepAlive();
 
-    client.get("http://100.25.147.177:8080/tasks/sendMessage?taskName=trash&phone=3175157811");
+    client.get("http://ec2-44-210-92-253.compute-1.amazonaws.com/tasks/sendMessage?taskName=trash&phone=3175157811");
     
     delay(10000);
     client.stop();
