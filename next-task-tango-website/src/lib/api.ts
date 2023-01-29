@@ -26,6 +26,17 @@ const getLaterTasksByGroup = async (group_id: string) => {
     return await axios.get(BASE_URL + `/tasks/later?group=${group_id}`)
 }
 
+const updatePhone = async (user_email: string, phone_num: string) => {
+    return await axios.post(BASE_URL + `/users`, {
+        email: user_email,
+        phone: phone_num
+    })
+}
+
+const taskDone = async (scan_code: string) => {
+    return await axios.get(BASE_URL + `/tasks/done?code=${scan_code}`)
+}
+
 module.exports = {
     getTasksByUser,
     getTasksByGroup,

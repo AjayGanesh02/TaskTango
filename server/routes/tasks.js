@@ -101,22 +101,22 @@ taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
   .then(message => console.log(message.sid));
 });
 
-taskRoutes.route('/tasks/complete').post(function (req, res) {
+taskRoutes.route('/tasks/done').get(function (req, _res) {
   const dbConnect = dbo.getDb();
-  const matchDocument = {
-    card_id: req.body.data
-  };
+  const code = req.query.code
 
+  function addMins(date, mins) {
+    date.setMinutes(date.getMinutes() - mins);
+
+    return date;
+  }
+  const matchDocument = {
+    card_id: code
+  }
+  const taskOld = dbConnect.collection('Tasks').findOne(matchDocument).toArray()[0]
   dbConnect
-    .collection('Tasks')
-    .insertOne(matchDocument, function (err, result) {
-      if (err) {
-        res.status(400).send('Error inserting matches!');
-      } else {
-        console.log(`Added a new match with id ${result.insertedId}`);
-        res.status(204).send(result.insertedId);
-      }
-    });
-});
+  .collection('Tasks')
+  .updateOne(matchDocument, { $set: { next_alert: addMins(new Date(), taskOld.frequency), assign_idx: (taskOld.assign_idx + 1) % taskOld.assignees.length }})
+})
 
 module.exports = taskRoutes;
