@@ -7,7 +7,7 @@ const cors = require('cors');
 
 // get MongoDB driver connection
 const dbo = require('./db/conn');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 80;
 const app = express();
 
 
