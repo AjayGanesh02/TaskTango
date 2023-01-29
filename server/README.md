@@ -14,6 +14,8 @@
     - body
       - group: group id
       - initial_assignee: initial user's email
+      - freq: int, minutes to remind
+      - is_freq: bool, true for frequency based
   - groups
     - body
       - group_name: group name

@@ -34,6 +34,8 @@ groupRoutes.route('/groups').post(function (req, res) {
     users: [req.body.initial_user]
   };
 
+  console.log(matchDocument)
+
   dbConnect
     .collection('Groups')
     .insertOne(matchDocument, function (err, result) {
