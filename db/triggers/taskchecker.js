@@ -1,5 +1,5 @@
 
-exports = function (changeEvent) {
+exports = async function (changeEvent) {
     /*
       A Database Trigger will always call a function with a changeEvent.
       Documentation on ChangeEvents: https://docs.mongodb.com/manual/reference/change-events/
@@ -40,37 +40,33 @@ exports = function (changeEvent) {
       Learn more about http client here: https://www.mongodb.com/docs/atlas/app-services/functions/context/#std-label-context-http
     */
 
-    function addMinutes(date, mins) {
-        date.setMinutes(date.getMinutes() + mins);
+    // function addMinutes(date, mins) {
+    //     date.setMinutes(date.getMinutes() + mins);
 
-        return date;
-    }
+    //     return date;
+    // }
 
-    context.http.post({
-        
-    })
 
-    const allTasks = context.services.get("Main").db("TaskTango").collection("Tasks").find({}).toArray();
-    for (var task in allTasks) {
+    const allTasks = await context.services.get("Main").db("TaskTango").collection("Tasks").find({}).toArray();
+    for (var i = 0; i < allTasks.length; i++) {
+      var task = allTasks[i]
         if (!task.isFreq) {
             continue;
         }
 
-        if (addMinutes(date, task.freq) > Date.now()) {
-            const response = axios.post(
-                'https://api.twilio.com/2010-04-01/Accounts/ACa7672cef171f5f2c51cd88bf4809e309/Messages.json',
-                new URLSearchParams({
-                    'Body': 'Hello from Twilio',
-                    'From': '+18339741927',
-                    'To': '+16145585989'
-                }),
-                {
-                    auth: {
-                        username: 'ACa7672cef171f5f2c51cd88bf4809e309',
-                        password: '15efaf5edb115b09d8d8eed55a1d4f14'
-                    }
-                }
-            );
+        if (task.next_alert < Date.now()) {
+            const resp = await context.http.get({
+              scheme: "http",
+              host: "ec2-44-210-92-253.compute-1.amazonaws.com",
+              path: "/tasks/sendMessage",
+              query: {
+                "phone":  [String(task.assignees[task.assign_idx])],
+                "taskName": [String(task.name)]
+              }
+            })
+            // const resp = await context.http.get({url: `ec2-44-210-92-253.compute-1.amazonaws.com/tasks/sendMessage?phone=${task.assignees[task.assign_idx]}&taskName=${task.name}`})
+            return resp
         }
     };
+    return "done";
 };
