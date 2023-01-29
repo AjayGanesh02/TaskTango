@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import {ArrowLeftOnRectangleIcon, CheckCircleIcon, LinkIcon} from "@heroicons/react/24/outline";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import { taskDone } from "@/lib/api";
 
 const Scan = () => {
   const router = useRouter()
@@ -10,15 +11,17 @@ const Scan = () => {
 
   useEffect(() => {
     if(window !== undefined) {
-      if(window.localStorage.task_id) {
+      if(window.localStorage.cid) {
         console.log("scan was successful")
         setScanned(true)
 
         // make request here
-        setTimeout(() => {
-          setScanned(false)
-          window.localStorage.removeItem("task_id")
-        }, 5000)
+        taskDone(window.localStorage.cid).then(() => {
+          window.localStorage.removeItem("cid");
+          setTimeout(() => {
+            setScanned(false)
+          }, 5000)
+        })
       }
     }
   }, [])

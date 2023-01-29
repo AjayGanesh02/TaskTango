@@ -8,14 +8,14 @@ import Image from "next/image";
 export default function Home() {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
-  const {task_id} = router.query;
+  const {cid} = router.query;
 
   useEffect(() => {
-    if(task_id && window !== undefined) {
-      localStorage.setItem("task_id", task_id as string)
+    if(cid && window !== undefined) {
+      localStorage.setItem("cid", cid as string)
       console.log('set local storage')
     }
-  }, [task_id])
+  }, [cid])
 
   useEffect(() => {
     if (user) {

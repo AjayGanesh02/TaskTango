@@ -49,5 +49,6 @@ export {
     getLaterTasksByGroup,
     getLaterTasksByUser,
     updatePhone,
-    taskDone
+    taskDone,
+    getGroupByGroupID,
 }
