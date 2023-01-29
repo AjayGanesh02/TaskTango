@@ -1,6 +1,7 @@
 import { Button, SafeAreaView, Text, View } from "react-native";
 import React from "react";
 import { useAuth0 } from "react-native-auth0";
+import { TrashIcon } from "react-native-heroicons/outline";
 
 const Profile = () => {
   const {user} = useAuth0();
@@ -42,7 +43,7 @@ const LogoutButton = () => {
 const Login = () => {
   return (
     <SafeAreaView>
-      <Text className="bg-blue-500">Testing 123</Text>
+      <TrashIcon className={"w-20 h-20"}/>
       <Profile />
       <LoginButton />
       <LogoutButton />

@@ -3,6 +3,7 @@ import { TailwindProvider } from 'tailwindcss-react-native';
 import Home from "./src/Views/Home";
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 import Login from "./src/Views/Login";
+import { NavigationContainer } from "@react-navigation/native";
 
 function App(): JSX.Element {
 
@@ -12,8 +13,10 @@ function App(): JSX.Element {
       clientId={"kGfME5u35rAJlivtMNn27U9ob7woJ6uQ"}
       cacheLocation="localstorage">
       <TailwindProvider>
-        {/*<Home />*/}
-        <Login />
+        <NavigationContainer>
+          {/*<Home />*/}
+          <Login />
+        </NavigationContainer>
       </TailwindProvider>
     </Auth0Provider>
   );
