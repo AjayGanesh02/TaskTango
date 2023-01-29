@@ -2,9 +2,11 @@ import Head from "next/head";
 import {PlusIcon} from "@heroicons/react/20/solid";
 import GroupDisplay from "@/components/GroupDisplay";
 import {useState} from "react";
+import {useRouter} from "next/router";
 
 
 const Group = () => {
+  const router = useRouter()
   const [groups, setGroups] = useState<string[]>(["thing1", "thing2", "thing3"])
 
   return (
@@ -18,7 +20,7 @@ const Group = () => {
           Groups
           <button
             className="ml-auto mr-10"
-            onClick={() => console.log("Add group")}>
+            onClick={() => router.push("/create")}>
             <PlusIcon className="w-8 h-8"/>
           </button>
         </h1>

@@ -1,4 +1,3 @@
-import {Props} from "next/script";
 import {UserCircleIcon} from "@heroicons/react/24/outline";
 import {ChevronRightIcon} from "@heroicons/react/20/solid";
 import {useRouter} from "next/router";
