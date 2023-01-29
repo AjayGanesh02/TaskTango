@@ -71,11 +71,11 @@ taskRoutes.route('/tasks').post(function (req, res) {
 });
 
 taskRoutes.route('/tasks/sendMessage').get((req,_res) => {
-  const phone = "+" + req.query.phone
+  const phone = "+1" + req.query.phone
   client.messages
   .create({ body: "Reminder to do " + req.query.taskName, from: "+18339741927", to: phone })
   .then(message => console.log(message.sid));
-})
+});
 
 taskRoutes.route('/tasks/complete').post(function (req, res) {
   const dbConnect = dbo.getDb();
